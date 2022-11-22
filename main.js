@@ -70,7 +70,14 @@ function today_string() {
       return "Error";
   }
 }
-let today = new Date();
-let month_number_asked = parseInt(prompt("Quel mois voulez vous connaitre ?"));
+let today = new Date(),
+  month_number_asked = parseInt(prompt("Quel mois voulez vous connaitre ?"));
 console.log(month_string(month_number_asked));
 console.log(today_string());
+console.log(
+  new Intl.DateTimeFormat("fr-FR", {
+    dateStyle: "full",
+    timeStyle: "long",
+    timeZone: "Europe/Paris",
+  }).format(today)
+);
